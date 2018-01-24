@@ -15,7 +15,7 @@ def main():
     / \\/ %s\___
    /         %s
   /      ____/ %s
- /______/   %s\n""" % (args.e, args.n, args.message, args.t)
+ /______/   %s\n""" % (args.e[0], args.n[0], args.message, args.t[0])
 
 
 main()

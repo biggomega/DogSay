@@ -4,11 +4,11 @@ import os
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--eye', '-e', metavar='eye', default='o',
+    parser.add_argument('--eye', '-e', default='o',
                         help="change Bruno's eye")
-    parser.add_argument('--nose', '-n', metavar='nose', default='O',
+    parser.add_argument('--nose', '-n', default='O',
                         help="change Bruno's nose")
-    parser.add_argument('--tongue', '-t', metavar='tongue', default='U',
+    parser.add_argument('--tongue', '-t', default='U',
                         help="change Bruno's tongue")
     parser.add_argument('--execute', '-x', action='store_true',
                         help="give Bruno an order")
@@ -17,6 +17,8 @@ def main():
                          help="zoom out")
     variety.add_argument('--wings', '-w', action='store_true',
                          help="give Bruno wings")
+    variety.add_argument('--fancy', '-f', action='store_true',
+                         help="clarify")
     parser.add_argument('message', nargs='?', default="",
                         help='give Bruno something to say')
     args = parser.parse_args()
@@ -32,6 +34,29 @@ def main():
      | | /      | | /
      (_}_}      (_}_}\n""" % (args.eye[0], args.nose[0], args.message,
                               args.tongue[0])
+    elif args.fancy:
+        print """\n                      ;`\\
+                      |' \\
+   _                  ; : ;
+  / `-.              /: : |
+ |  ,-.`-.          ,': : |
+ \\  :  `. `.       ,'-. : |
+  \\ ;    ;  `-.__,'    `-.|
+   \\ ;   ;  :::  ,::'`:.  `.
+    \\ `-. :  `    :.    `.  \\
+     \\   \\    ,   ;   ,:    (\\
+      \\   :., :.    ,'%s)): ` `-.
+     ,/,' ;' ,::"'`.`---'   `.  `-._
+   ,/  :  ; '"      `;'          ,--`.
+  ;/   :; ;             ,:'     (   ,:)
+    ,.,:.    ; ,:.,  ,-._ `.     \\""'/
+    '::'     `:'`  ,'(  \\`._____.-'"'
+       ;,   ;  `.  `. `._`-.  \\        %s
+       ;:.  ;:       `-._`-.\\  \\`.
+        '`:. :        |' `. `\\  ) \\
+           ` ;:       |    `--\\__,'
+             '`      ,'
+                  ,-'\n""" % (args.eye, args.message)
     elif args.wings:
         print """         ___       _____
   /|    //\\\\\\     / \\/ %s\___

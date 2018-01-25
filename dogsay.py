@@ -14,7 +14,8 @@ def main():
                          help="zoom out")
     variety.add_argument('--wings', '-w', action='store_true',
                          help="give Bruno wings")
-    parser.add_argument('message', help='give Bruno something to say')
+    parser.add_argument('message', nargs='?', default="",
+                        help='give Bruno something to say')
     args = parser.parse_args()
     if args.big:
         print """                   _____
@@ -26,7 +27,8 @@ def main():
     \\___/_/----\\  /  /
      | | |      | | |
      | | /      | | /
-     (_}_}      (_}_}\n""" % (args.e[0], args.n[0], args.message, args.t[0])
+     (_}_}      (_}_}\n""" % (args.eye[0], args.nose[0], args.message,
+                              args.tongue[0])
     elif args.wings:
         print """         ___       _____
   /|    //\\\\\\     / \\/ %s\___
@@ -44,7 +46,9 @@ def main():
     / \\/ %s\___
    /         %s
   /      ____/ %s
- /______/   %s\n""" % (args.e[0], args.n[0], args.message, args.t[0])
+ /______/   %s\n""" % (args.eye[0], args.nose[0], args.message,
+                       args.tongue[0])
 
 
-main()
+if __name__ == "__main__":
+    main()

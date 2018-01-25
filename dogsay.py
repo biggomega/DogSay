@@ -1,4 +1,5 @@
 import argparse
+import os
 
 
 def main():
@@ -9,6 +10,8 @@ def main():
                         help="change Bruno's nose")
     parser.add_argument('--tongue', '-t', metavar='tongue', default='U',
                         help="change Bruno's tongue")
+    parser.add_argument('--execute', '-x', action='store_true',
+                        help="give Bruno an order")
     variety = parser.add_mutually_exclusive_group()
     variety.add_argument('--big', '-b', action='store_true',
                          help="zoom out")
@@ -48,6 +51,8 @@ def main():
   /      ____/ %s
  /______/   %s\n""" % (args.eye[0], args.nose[0], args.message,
                        args.tongue[0])
+    if args.execute:
+        os.system(args.message)
 
 
 if __name__ == "__main__":

@@ -3,15 +3,44 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-e', metavar='eye', default='o',
+    parser.add_argument('--eye', '-e', metavar='eye', default='o',
                         help="change Bruno's eye")
-    parser.add_argument('-n', metavar='nose', default='O',
+    parser.add_argument('--nose', '-n', metavar='nose', default='O',
                         help="change Bruno's nose")
-    parser.add_argument('-t', metavar='tongue', default='U',
+    parser.add_argument('--tongue', '-t', metavar='tongue', default='U',
                         help="change Bruno's tongue")
+    variety = parser.add_mutually_exclusive_group()
+    variety.add_argument('--big', '-b', action='store_true',
+                         help="zoom out")
+    variety.add_argument('--wings', '-w', action='store_true',
+                         help="give Bruno wings")
     parser.add_argument('message', help='give Bruno something to say')
     args = parser.parse_args()
-    print """     _____
+    if args.big:
+        print """                   _____
+  /|              / \\/ %s\___
+ / |             /         %s
+ \\  \___________/      ____/ %s
+  \\_                  ]  %s
+   |                  /
+    \\___/_/----\\  /  /
+     | | |      | | |
+     | | /      | | /
+     (_}_}      (_}_}\n""" % (args.e[0], args.n[0], args.message, args.t[0])
+    elif args.wings:
+        print """         ___       _____
+  /|    //\\\\\\     / \\/ %s\___
+ / |    |||\\\\\\   /         %s
+ \\  \____\\\\\\\\\\\\_/      ____/ %s
+  \\_      ||||/        ]  %s
+   |                  /
+    \\___/_/----\\  /  /
+     | | |      | | |
+     | | /      | | /
+     (_}_}      (_}_}\n""" % (args.eye[0], args.nose[0], args.message,
+                              args.tongue[0])
+    else:
+        print """     _____
     / \\/ %s\___
    /         %s
   /      ____/ %s

@@ -1,2 +1,2 @@
-cp bin/dogsay /usr/local/bin/dogsay\ ->\ ../Cellar/dogsay/$1/bin/dogsay
+cp bin/dogsay $1 ->\ $2/dogsay
 mv ../dogsay /usr/local/Cellar/dogsay

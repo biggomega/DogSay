@@ -1,11 +1,11 @@
 class Dogsay < Formula
   desc "Have an ASCII dog do your talking for you"
   homepage "https://github.com/biggomega/dogsay"
-  url "https://benbotvinick.com/downloads/dogsay/dogsay-1.0.tar.gz"
-  sha256 "13bbe5788d418b2d1e8cc65f16547003578c77faee572b44e9b668bc5c9cecba"
+  url "https://benbotvinick.com/projects/dogsay/dogsay-1.0.tar.gz"
+  sha256 "6fe309a20bdd944f8afa10abc67a5048c8da21e764e6aa7f2bed4d8772f84965"
 
   def install
-    system "/bin/sh", "install.sh", prefix
+    bin.install("bin/dogsay")
   end
 
   test do
@@ -14,4 +14,3 @@ class Dogsay < Formula
     assert_match "\\/", output
   end
 end
-

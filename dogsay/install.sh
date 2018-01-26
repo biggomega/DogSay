@@ -1,1 +1,1 @@
-chmod a+x $1/dogsay
+chmod a+x $1/bin/dogsay

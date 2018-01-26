@@ -1,1 +1,1 @@
-chmod a+x $1/dogsay
+echo $1/dogsay

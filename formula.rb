@@ -2,10 +2,12 @@ class Dogsay < Formula
   desc "Have an ASCII dog do your talking for you"
   homepage "https://github.com/biggomega/dogsay"
   url "https://benbotvinick.com/projects/dogsay/dogsay-1.0.tar.gz"
-  sha256 "6fe309a20bdd944f8afa10abc67a5048c8da21e764e6aa7f2bed4d8772f84965"
+  sha256 "231348c2f4b803d79ca5df159a75b324e7c27ac005c33503e33ae38bc2e212b8"
 
   def install
-    bin.install("bin/dogsay")
+    bin.install "bin/dogsay"
+    prefix.install "dogsay.py"
+    system "/bin/sh", "install.sh", "#{prefix}"
   end
 
   test do

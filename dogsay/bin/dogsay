@@ -1,1 +1,1 @@
-python dogsay.py "$@"
+python ../dogsay.py "$@"

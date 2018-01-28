@@ -1,11 +1,11 @@
-rm -rf /tmp/dogsay
-rm /tmp/dogsay.tar.gz
-rm /usr/local/bin/dogsay
-rm /usr/local/bin/dogsay.py
-curl -sLo /tmp/dogsay.tar.gz https://benbotvinick.com/projects/dogsay/dogsay.tar.gz
-tar -xzpf /tmp/dogsay.tar.gz
-rm /tmp/dogsay.tar.gz
-mv /tmp/dogsay/dogsay /usr/local/bin/dogsay
-mv /tmp/dogsay/dogsay.py /usr/local/bin/dogsay.py
-rm -rf /tmp/dogsay
+rm -rf /private/tmp/dogsay
+rm -f /private/tmp/dogsay.tar.gz
+rm -f /usr/local/bin/dogsay
+rm -f /usr/local/bin/dogsay.py
+curl -sLo /private/tmp/dogsay.tar.gz https://benbotvinick.com/projects/dogsay/dogsay.tar.gz
+tar -xzpf /private/tmp/dogsay.tar.gz
+rm /private/tmp/dogsay.tar.gz
+mv /private/tmp/dogsay/dogsay /private/usr/local/bin/dogsay
+mv /private/tmp/dogsay/dogsay.py /private/usr/local/bin/dogsay.py
+rm -rf /private/tmp/dogsay
 

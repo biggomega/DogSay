@@ -1,11 +1,18 @@
-rm -rf /private/tmp/dogsay
-rm -f /private/tmp/dogsay.tar.gz
+#!/bin/bash
+
+now=$(date +"%s")
+cwd=$(pwd)
 rm -f /usr/local/bin/dogsay
 rm -f /usr/local/bin/dogsay.py
-curl -sLo /private/tmp/dogsay.tar.gz https://benbotvinick.com/projects/dogsay/dogsay.tar.gz
-tar -xzpf /private/tmp/dogsay.tar.gz
-rm /private/tmp/dogsay.tar.gz
-mv /private/tmp/dogsay/dogsay /usr/local/bin/dogsay
-mv /private/tmp/dogsay/dogsay.py /usr/local/bin/dogsay.py
-rm -rf /private/tmp/dogsay
-
+cd $HOME
+mkdir dogsay_$now
+cd dogsay_$now
+curl -fsLo dogsay.tar.gz https://benbotvinick.com/projects/dogsay/dogsay.tar.gz
+tar -xzpf dogsay.tar.gz
+rm dogsay.tar.gz
+mkdir -p /usr/local/bin
+mv dogsay/dogsay /usr/local/bin/dogsay
+mv dogsay/dogsay.py /usr/local/bin/dogsay.py
+cd ..
+rm -rf dogsay_$now
+cd $cwd

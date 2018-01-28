@@ -1,23 +1,22 @@
 import argparse
 import os
 
-
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--eye', '-e', default='o',
+    parser.add_argument('-e', '--eye', default='o',
                         help="change Bruno's eye")
-    parser.add_argument('--nose', '-n', default='O',
+    parser.add_argument('-n', '--nose', default='O',
                         help="change Bruno's nose")
-    parser.add_argument('--tongue', '-t', default='U',
+    parser.add_argument('-t', '--tongue', default='U',
                         help="change Bruno's tongue")
-    parser.add_argument('--execute', '-x', action='store_true',
+    parser.add_argument('-x', '--execute', action='store_true',
                         help="give Bruno an order")
     variety = parser.add_mutually_exclusive_group()
-    variety.add_argument('--big', '-b', action='store_true',
+    variety.add_argument('-b', '--big', action='store_true',
                          help="zoom out")
-    variety.add_argument('--wings', '-w', action='store_true',
+    variety.add_argument('-w', '--wings', action='store_true',
                          help="give Bruno wings")
-    variety.add_argument('--fancy', '-f', action='store_true',
+    variety.add_argument('-f', '--fancy', action='store_true',
                          help="clarify")
     parser.add_argument('message', nargs='?', default="",
                         help='give Bruno something to say')

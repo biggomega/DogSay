@@ -1,0 +1,2 @@
+#!/$SHELL
+source $1

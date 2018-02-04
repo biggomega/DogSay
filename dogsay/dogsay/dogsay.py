@@ -34,9 +34,9 @@ def parser():
                         help="change Bruno's tongue")
     parser.add_argument('-x', '--execute', action='store_true',
                         help="give Bruno an order")
-    parser.add_argument('--version', action='store_true',
+    parser.add_argument('--version', '-V', action='store_true',
                         help='print Dogsay version and exit')
-    parser.add_argument('--update', action='store_true',
+    parser.add_argument('--update', '-U', action='store_true',
                         help='udate Dogsay')
 
     # add mutually exclusive arguments, such as big and wings
@@ -121,7 +121,7 @@ def default(args):
 def update():
     print(bold("Disregarding all other arguments and "
           + "attempting to update Dogsay..."))
-    success = os.system("./$HOME/.dogsay/update.sh")
+    success = os.system("sh $HOME/.dogsay/update.sh")
     if success == 0:
         print(bold(green("Successfully updated Dogsay!")))
     else:

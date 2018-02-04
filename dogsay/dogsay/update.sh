@@ -2,23 +2,21 @@
 
 now=$(date +"%s")
 cwd=$(pwd)
-version="1.0.0"
+version=$(curl -s https://benbotvinick.com/projects/dogsay/VERSION)
 rm -rf $HOME/.dogsay
 mkdir -p $HOME/.dogsay/bin
 cd $HOME
 mkdir dogsay_$now
 cd dogsay_$now
-curl -fsLo dogsay.tar.gz https://benbotvinick.com/projects/dogsay/dogsay-$version.tar.gz
+curl -fsLo dogsay.tar.gz https://benbotvinick.com/projects/dogsay/dogsay.tar.gz
 tar -xzpf dogsay.tar.gz
 rm dogsay.tar.gz
 mv dogsay/dogsay $HOME/.dogsay/bin/dogsay
 mv dogsay/dogsay.py $HOME/.dogsay/dogsay.py
 mv dogsay/update.sh $HOME/.dogsay/update.sh
 touch $HOME/.dogsay/VERSION
-echo "Dogsay $version" > $HOME/.dogsay/VERSION
-tput bold
-tput setaf 4
-printf "Enter the path to your config file (.bashrc, .profile): "
+echo $version > $HOME/.dogsay/VERSION
+printf "\033[0;34mEnter the path to your config file (.bashrc, .profile): "
 tput sgr0
 read config
 if cat $HOME/$config &> /dev/null; then
@@ -34,7 +32,7 @@ if cat $HOME/$config &> /dev/null; then
     rm dogsay/update_path.sh
     tput bold
     tput setaf 2
-    echo "Successfully updated Dogsay."
+    echo "Successfully updated Dogsay to version $version"
 else
     tput bold
     tput setaf 1

@@ -131,7 +131,7 @@ def update():
     remote = subprocess.check_output("curl -s https://benbotvinick.com"
                                      + "/projects/dogsay/VERSION",
                                      shell=True)
-    if local == remote:
+    if local != remote:
         print(blue("Disregarding all other arguments and "
               + "attempting to update Dogsay..."))
         success = os.system("sh $HOME/.dogsay/update.sh")

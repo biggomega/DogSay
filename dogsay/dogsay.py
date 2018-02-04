@@ -138,7 +138,7 @@ def update():
         if success != 0:
             print(bold(red("Update failed.")))
     else:
-        print(bold(green("Dogsay already up to date (version %s)" % (local))))
+        print(bold(green("Dogsay already up to date")))
 
 
 def version():

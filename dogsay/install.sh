@@ -18,7 +18,7 @@ if python --version &> /dev/null; then
     touch $HOME/.dogsay/VERSION
     echo "Dogsay $version" > $HOME/.dogsay/VERSION
     tput bold
-    printf "Enter the path to your config file (.bashrc, .profile, etc.): "
+    printf "Enter the path to your config file (.bashrc, .profile): "
     tput sgr0
     read config
     if cat $HOME/$config &> /dev/null; then
@@ -34,7 +34,7 @@ if python --version &> /dev/null; then
         rm dogsay/update_path.sh
         tput bold
         tput setaf 2
-        echo "Successfully installed Dogsay $version."
+        echo "Successfully installed Dogsay $version"
     else
         tput bold
         tput setaf 1

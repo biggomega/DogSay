@@ -20,6 +20,12 @@ def bold(text):
             + u"\u001b[0m")
 
 
+def blue(text):
+    return (u"\u001b[36m"
+            + text
+            + u"\u001b[0m")
+
+
 def parser():
 
     # create parser
@@ -119,12 +125,10 @@ def default(args):
 
 
 def update():
-    print(bold("Disregarding all other arguments and "
-          + "attempting to update Dogsay..."))
+    print(bold(blue("Disregarding all other arguments and "
+          + "attempting to update Dogsay...")))
     success = os.system("sh $HOME/.dogsay/update.sh")
-    if success == 0:
-        print(bold(green("Successfully updated Dogsay!")))
-    else:
+    if success != 0:
         print(bold(red("Update failed.")))
 
 

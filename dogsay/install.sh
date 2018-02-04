@@ -21,10 +21,12 @@ if python --version &> /dev/null; then
     printf "Enter the path to your config file (.bashrc, .profile, etc.): "
     tput sgr0
     read config
-    echo "" >> $HOME/$config
-    echo "# Add Dogsay to path. Removing this line will depricate the Dogsay command." >> $HOME/$config
-    echo "export PATH=\"\$PATH:\$HOME/.dogsay/bin\"" >> $HOME/$config
     if cat $HOME/$config &> /dev/null; then
+        if ! grep -Fxq "export PATH=\"\$PATH:\$HOME/.dogsay/bin\"" $HOME/$config; then
+            echo "" >> $HOME/$config
+            echo "# Add Dogsay to path. Removing this line will depricate the Dogsay command." >> $HOME/$config
+            echo "export PATH=\"\$PATH:\$HOME/.dogsay/bin\"" >> $HOME/$config
+        fi
         touch dogsay/update_path.sh
         echo "#!$SHELL" >> dogsay/update_path.sh
         echo "source \$1" >> dogsay/update_path.sh

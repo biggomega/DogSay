@@ -1,4 +1,5 @@
 import argparse
+import subprocess
 import os
 
 
@@ -125,11 +126,19 @@ def default(args):
 
 
 def update():
-    print(blue("Disregarding all other arguments and "
-          + "attempting to update Dogsay..."))
-    success = os.system("sh $HOME/.dogsay/update.sh")
-    if success != 0:
-        print(bold(red("Update failed.")))
+    local = subprocess.check_output("cat $HOME/.dogsay/VERSION",
+                                    shell=True)
+    remote = subprocess.check_output("curl -s https://benbotvinick.com"
+                                     + "/projects/dogsay/VERSION",
+                                     shell=True)
+    if local == remote:
+        print(blue("Disregarding all other arguments and "
+              + "attempting to update Dogsay..."))
+        success = os.system("sh $HOME/.dogsay/update.sh")
+        if success != 0:
+            print(bold(red("Update failed.")))
+    else:
+        print(bold(green("Dogsay already up to date (version %s)" % (local))))
 
 
 def version():

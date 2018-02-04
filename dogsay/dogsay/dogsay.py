@@ -21,7 +21,7 @@ def bold(text):
 
 
 def blue(text):
-    return (u"\u001b[36m"
+    return (u"\033[0;34m"
             + text
             + u"\u001b[0m")
 
@@ -125,18 +125,15 @@ def default(args):
 
 
 def update():
-    os.system("tput setaf 4")
-    print(bold("Disregarding all other arguments and "
+    print(blue("Disregarding all other arguments and "
           + "attempting to update Dogsay..."))
-    os.system("tput sgr0")
     success = os.system("sh $HOME/.dogsay/update.sh")
     if success != 0:
         print(bold(red("Update failed.")))
 
 
 def version():
-    version = open("$HOME/.dogsay/VERSION").readline().rstrip()
-    print version
+    os.system("printf 'Dogsay '; cat $HOME/.dogsay/VERSION")
 
 
 def dogsay(args):

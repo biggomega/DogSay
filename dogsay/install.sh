@@ -25,7 +25,6 @@ if python --version &> /dev/null; then
     echo "# Add Dogsay to path. Removing this line will depricate the Dogsay command." >> $HOME/$config
     echo "export PATH=\"\$PATH:\$HOME/.dogsay/bin\"" >> $HOME/$config
     if cat $HOME/$config &> /dev/null; then
-        rm dogsay/update_path.sh
         touch dogsay/update_path.sh
         echo "#!$SHELL" >> dogsay/update_path.sh
         echo "source \$1" >> dogsay/update_path.sh

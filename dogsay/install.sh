@@ -18,6 +18,7 @@ if python --version &> /dev/null; then
     touch $HOME/.dogsay/VERSION
     echo "Dogsay $version" > $HOME/.dogsay/VERSION
     tput bold
+    tput setaf 4
     printf "Enter the path to your config file (.bashrc, .profile): "
     tput sgr0
     read config

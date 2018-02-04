@@ -125,8 +125,10 @@ def default(args):
 
 
 def update():
-    print(bold(blue("Disregarding all other arguments and "
-          + "attempting to update Dogsay...")))
+    os.system("tput setaf 4")
+    print(bold("Disregarding all other arguments and "
+          + "attempting to update Dogsay..."))
+    os.system("tput sgr0")
     success = os.system("sh $HOME/.dogsay/update.sh")
     if success != 0:
         print(bold(red("Update failed.")))

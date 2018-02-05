@@ -23,7 +23,7 @@ if python --version &> /dev/null; then
         mv dogsay/update.sh $HOME/.dogsay/update.sh
         touch $HOME/.dogsay/VERSION
         echo $version > $HOME/.dogsay/VERSION
-        printf "\033[0;34mEnter the path to your config file (.bashrc, .profile): "
+        printf "\033[1mEnter the path to your config file (.bashrc, .profile): "
         tput sgr0
         read config
         if cat $HOME/$config &> /dev/null; then

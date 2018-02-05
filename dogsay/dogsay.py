@@ -132,7 +132,7 @@ def update():
                                      + "/projects/dogsay/VERSION",
                                      shell=True)
     if local != remote:
-        print(blue("Disregarding all other arguments and "
+        print(bold("Disregarding all other arguments and "
               + "attempting to update Dogsay..."))
         success = os.system("sh $HOME/.dogsay/update.sh")
         if success != 0:

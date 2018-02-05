@@ -64,17 +64,17 @@ def parser():
 
 
 def big(args):
-    print("""                       _____
-      /|              / \\/ %s\___
-     / |             /         %s
-     \\  \___________/      ____/ %s
-      \\_                  ]  %s
-       |                  /
-        \\___/_/----\\  /  /
-         | | |      | | |
-         | | /      | | /
-         (_}_}      (_}_}\n""" % (args.eye[0], args.nose[0], args.message,
-                                  args.tongue[0]))
+    print("""                   _____
+  /|              / \\/ %s\___
+ / |             /         %s
+ \\  \___________/      ____/ %s
+  \\_                  ]  %s
+   |                  /
+    \\___/_/----\\  /  /
+     | | |      | | |
+     | | /      | | /
+     (_}_}      (_}_}\n""" % (args.eye[0], args.nose[0], args.message,
+                              args.tongue[0]))
 
 
 def fancy(args):

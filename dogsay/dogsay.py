@@ -41,10 +41,10 @@ def parser():
                         help="change Bruno's tongue")
     parser.add_argument('-x', '--execute', action='store_true',
                         help="give Bruno an order")
-    parser.add_argument('--version', '-V', action='store_true',
+    parser.add_argument('-V', '--version', action='store_true',
                         help='print Dogsay version and exit')
-    parser.add_argument('--update', '-U', action='store_true',
-                        help='udate Dogsay')
+    parser.add_argument('-U', '--update', action='store_true',
+                        help='update Dogsay')
 
     # add mutually exclusive arguments, such as big and wings
     variety = parser.add_mutually_exclusive_group()

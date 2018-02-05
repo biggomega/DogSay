@@ -32,7 +32,7 @@ if cat $HOME/$config &> /dev/null; then
     rm dogsay/update_path.sh
     tput bold
     tput setaf 2
-    echo "Successfully updated Dogsay to version $version"
+    echo "Successfully updated Dogsay to version $version. If it does not work immediately, restart your shell and try again."
 else
     tput bold
     tput setaf 1

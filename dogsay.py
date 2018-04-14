@@ -41,10 +41,6 @@ def parser():
                         help="change Bruno's tongue")
     parser.add_argument('-x', '--execute', action='store_true',
                         help="give Bruno an order")
-    parser.add_argument('-V', '--version', action='store_true',
-                        help='print Dogsay version and exit')
-    parser.add_argument('-U', '--update', action='store_true',
-                        help='update Dogsay')
 
     # add mutually exclusive arguments, such as big and wings
     variety = parser.add_mutually_exclusive_group()
@@ -125,43 +121,17 @@ def default(args):
                        args.tongue[0]))
 
 
-def update():
-    local = subprocess.check_output("cat $HOME/.dogsay/VERSION",
-                                    shell=True)
-    remote = subprocess.check_output("curl -s https://benbotvinick.com"
-                                     + "/projects/dogsay/VERSION",
-                                     shell=True)
-    if local != remote:
-        print(bold("Disregarding all other arguments and "
-              + "attempting to update Dogsay..."))
-        success = os.system("sh $HOME/.dogsay/update.sh")
-        if success != 0:
-            print(bold(red("Update failed.")))
-    else:
-        print(bold(green("Dogsay already up to date")))
-
-
-def version():
-    os.system("printf 'Dogsay '; cat $HOME/.dogsay/VERSION")
-
-
 def dogsay(args):
-    if not args.update:
-        if not args.version:
-            if args.big:
-                big(args)
-            elif args.fancy:
-                fancy(args)
-            elif args.wings:
-                wings(args)
-            else:
-                default(args)
-            if args.execute:
-                os.system(args.message)
-        else:
-            version()
+    if args.big:
+        big(args)
+    elif args.fancy:
+        fancy(args)
+    elif args.wings:
+        wings(args)
     else:
-        update()
+        default(args)
+    if args.execute:
+        os.system(args.message)
 
 
 def main():

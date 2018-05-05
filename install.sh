@@ -11,7 +11,7 @@ if python --version &> /dev/null; then
     curl -fLso $HOME/$project_name.tar.gz $project_url
     tar -xzpf $HOME/$project_name.tar.gz -C $HOME/.$project_name
     rm $HOME/$project_name.tar.gz
-    python $HOME/.$project_name/main.py
+    python $HOME/.$project_name/main.py "$@"
   fi
 else
   tput bold

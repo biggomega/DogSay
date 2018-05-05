@@ -1,7 +1,7 @@
 #!/bin/bash
 
-project_name="dogsay"
-project_url="https://github.com/botvinick/dogsay/releases/download/1.5.0/dogsay.tar.gz"
+project_name="dogsay" # Name of project
+project_url="https://github.com/botvinick/dogsay/releases/download/1.5.0/dogsay.tar.gz" # URL of project tarball
 
 if python --version &> /dev/null; then
   if ls $HOME/.$project_name &> /dev/null; then
@@ -11,7 +11,7 @@ if python --version &> /dev/null; then
     curl -fLso $HOME/$project_name.tar.gz $project_url
     tar -xzpf $HOME/$project_name.tar.gz -C $HOME/.$project_name
     rm $HOME/$project_name.tar.gz
-    python $HOME/.$project_name/main.py "$@"
+    echo "\n Success!\n Run the program with 'python \$HOME/.$project_name/main.py'\n"
   fi
 else
   tput bold

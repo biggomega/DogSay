@@ -5,7 +5,7 @@ project_url="https://github.com/botvinick/dogsay/releases/download/1.5.0/dogsay.
 
 if python --version &> /dev/null; then
   if ls $HOME/.$project_name &> /dev/null; then
-    python $HOME/.$project_name/main.py
+    python $HOME/.$project_name/main.py "$@"
   else
     mkdir $HOME/.$project_name
     curl -fLso $HOME/$project_name.tar.gz $project_url

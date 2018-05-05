@@ -11,11 +11,11 @@ if python --version &> /dev/null; then
     curl -fLso $HOME/$project_name.tar.gz $project_url
     tar -xzpf $HOME/$project_name.tar.gz -C $HOME/.$project_name
     rm $HOME/$project_name.tar.gz
-    echo "\n Success!\n Run the program with 'python \$HOME/.$project_name/main.py'\n"
+    python $HOME/.$project_name/main.py "$@"
   fi
 else
   tput bold
   tput setaf 1
-  echo "Failed because you don't have Python. Please install Python and try again."
+  echo "Installation failed because you don't have Python. Please install Python and try again."
   tput sgr0
 fi

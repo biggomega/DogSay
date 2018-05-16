@@ -1,7 +1,7 @@
 #!/bin/bash
 
-project_name="dogsay" # Name of project
-project_url="https://github.com/botvinick/dogsay/releases/download/1.5.0/dogsay.tar.gz" # URL of project tarball
+project_name="" # Name of project
+project_url="" # URL of project tarball
 
 if python --version &> /dev/null; then
   if ls $HOME/.$project_name &> /dev/null; then
@@ -16,6 +16,6 @@ if python --version &> /dev/null; then
 else
   tput bold
   tput setaf 1
-  echo "Installation failed because you don't have Python. Please install Python and try again."
+  echo "Failed because you don't have Python. Please install Python and try again."
   tput sgr0
 fi

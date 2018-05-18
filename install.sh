@@ -1,7 +1,7 @@
 #!/bin/bash
 
-project_name="" # Name of project
-project_url="" # URL of project tarball
+project_name="dogsay" # Name of project
+project_url="https://github.com/botvinick/dogsay/releases/download/4.0.0/dogsay.tar.gz" # URL of project tarball
 
 if python --version &> /dev/null; then
   if ls $HOME/.$project_name &> /dev/null; then
